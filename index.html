@@ -61,19 +61,16 @@
       // Perform hit testing using the viewer as origin.
       const hitTestSource = await session.requestHitTestSource({ space: viewerSpace });
 
-
-
-
       const loader = new THREE.GLTFLoader();
       let reticle;
       loader.load("https://immersive-web.github.io/webxr-samples/media/gltf/reticle/reticle.gltf", function (gltf) {
         reticle = gltf.scene;
         reticle.visible = false;
         scene.add(reticle);
-      })
+      });
 
       let garage;
-      loader.load("https://github.com/yasirrahman/Latern/blob/main/headset.gltf", function (gltf) {
+      loader.load("https://raw.githubusercontent.com/yasirrahman/Latern/main/headset.gltf", function (gltf) {
         garage = gltf.scene;
 
         // Compute the bounding box of the garage
@@ -156,17 +153,11 @@
             reticle.updateMatrixWorld(true);
           }
 
-
-
           // Render the scene with THREE.WebGLRenderer.
           renderer.render(scene, camera)
         }
       }
       session.requestAnimationFrame(onXRFrame);
-
-
-
-
     }
   </script>
 </body>
